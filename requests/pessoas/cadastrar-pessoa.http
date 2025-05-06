@@ -1,0 +1,10 @@
+
+POST http://localhost:8080/pessoas HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Elizabeth",
+    "cpf": "03605726852",
+    "endereco": "Av. Luiz Chizzolini, 136",
+    "cidade": "Assis"
+}

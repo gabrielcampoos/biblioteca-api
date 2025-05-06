@@ -1,0 +1,17 @@
+import { Resultado, ResultadoDTO } from "../../../shared/utils";
+import { LivrosRepository } from "../repository";
+
+export class ListarLivrosIndisponiveisUsecase {
+  async execute(): Promise<ResultadoDTO> {
+    const livrosRepository = new LivrosRepository();
+
+    const livrosDb = await livrosRepository.listarLivrosIndisponiveis();
+    const livrosJson = livrosDb.map((livro) => livro.toJson());
+
+    return Resultado.sucesso(
+      200,
+      "Livros listados do banco com sucesso.",
+      livrosJson
+    );
+  }
+}

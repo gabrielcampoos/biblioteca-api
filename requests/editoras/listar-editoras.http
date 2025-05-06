@@ -1,0 +1,7 @@
+
+Get http://localhost:8080/editoras HTTP/1.1
+content-type: application/json
+
+{
+   
+}
