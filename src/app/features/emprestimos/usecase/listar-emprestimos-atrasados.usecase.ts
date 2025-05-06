@@ -8,6 +8,8 @@ export class ListarEmprestimosAtrasadosUsecase {
   async execute(): Promise<ResultadoDTO> {
     const emprestimoRepository = new EmprestimosRepository();
     const cacheRepository = new CacheRepository();
+
+    await cacheRepository.delete(CACHE_KEY)
     const emprestimosCache = await cacheRepository.get(CACHE_KEY);
 
     if (emprestimosCache) {
