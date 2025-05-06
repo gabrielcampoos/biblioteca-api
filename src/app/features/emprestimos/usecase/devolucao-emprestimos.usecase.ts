@@ -25,6 +25,7 @@ export class DevolverEmprestimoUsecase {
       emprestimo
     );
 
+    await cacheRepository.delete(CACHE_PREFIX);
     const nomeFiltro = id.trim();
     await Promise.all([
       cacheRepository.delete(`${CACHE_PREFIX}:all`),
