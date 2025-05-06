@@ -9,6 +9,7 @@ export class ListarEmprestimosUsecase {
     const emprestimoRepository = new EmprestimosRepository();
     const cacheRepository = new CacheRepository();
 
+    await cacheRepository.delete(CACHE_PREFIX)
     const filtroFormatado = (filtro || "all").toLowerCase().trim();
     const cacheKey = `${CACHE_PREFIX}:${filtroFormatado}`;
 
