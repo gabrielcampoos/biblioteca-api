@@ -16,6 +16,7 @@ export class CadastrarEmprestimosUsecase {
       dados
     );
 
+    await cacheRepository.delete(CACHE_PREFIX)
     const nomeFiltro = dados.pessoa.toLowerCase().trim();
     await Promise.all([
       cacheRepository.delete(`${CACHE_PREFIX}:all`),
